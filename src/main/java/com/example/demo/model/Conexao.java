@@ -6,17 +6,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-    public static Connection getConnection() {
+    public Connection databaseLink;
+    public Connection getConnection() {
         var url = "jdbc:mysql://localhost:3306/biblioteca";
         var username = "root";
         var password = "";
         try {
-            DriverManager.getConnection(url, username, password);
+            databaseLink = DriverManager.getConnection(url, username, password);
             System.out.println("Conectado com sucesso!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return databaseLink;
     }
 
 }

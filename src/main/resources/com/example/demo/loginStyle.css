@@ -1,0 +1,7 @@
+.Button{
+    -fx-background-color: aquamarine;
+}
+
+.Entrar:hover{
+    -fx-background-color: darkcyan;
+}
