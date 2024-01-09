@@ -50,7 +50,7 @@ public class LoginController {
 
 
     @FXML
-    void BtnntrarOnAction(ActionEvent event) {
+    void BtnntrarOnAction(ActionEvent event) throws IOException {
         if (inputUsuario.getText().isEmpty() || inputSenha.getText().isEmpty()) {
             labelMsg.setText("Preencha todos os campos!");
             return;
@@ -59,7 +59,7 @@ public class LoginController {
 
     }
 
-    private void validarLogin(){
+    private void validarLogin() {
         Conexao conexao = new Conexao();
         Connection connection = conexao.getConnection();
         if (connection != null) {
@@ -70,7 +70,7 @@ public class LoginController {
                 ResultSet queryResult = statement.executeQuery(verifyLogin);
                 while (queryResult.next()) {
                     if (queryResult.getInt(1) == 1) {
-                        labelMsg.setText("Login realizado com sucesso!");
+                        HelloApplication.trocaDeTela("dashboard.fxml");
                     } else {
 
                         labelMsg.setText("usuário ou senha incorretos!");
