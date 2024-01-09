@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,13 +8,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import com.example.demo.HelloApplication;
 import com.example.demo.model.Conexao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
 public class LoginController {
 
     @FXML
@@ -39,6 +45,9 @@ public class LoginController {
 
     @FXML
     private Label labelMsg;
+
+
+
 
     @FXML
     void BtnntrarOnAction(ActionEvent event) {
@@ -79,8 +88,9 @@ public class LoginController {
     }
 
     @FXML
-    void btnCadastar(ActionEvent event) {
+    void btnCadastar(ActionEvent event) throws IOException {
 
+       HelloApplication.trocaDeTela("cadastro-view.fxml");
     }
 
     @FXML
