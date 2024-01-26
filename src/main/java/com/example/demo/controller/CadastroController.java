@@ -49,7 +49,7 @@ public class CadastroController {
 
     @FXML
     void BtnVoltarOnAction(ActionEvent event) throws IOException {
-        HelloApplication.trocaDeTela("login-view.fxml");
+        HelloApplication.trocaDeTela("login-view.fxml", null);
 
     }
 

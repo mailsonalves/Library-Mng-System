@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-public class livro {
+public class Livro {
     private int icbn;
     private String titulo;
     private String autor;
@@ -10,6 +10,10 @@ public class livro {
     private String categoria;
     private int quantidade;
 
+    private String localizacao;
+    private String observacao;
+
+    private int edicao;
 
     public void setIcbn(int icbn) {
         this.icbn = icbn;
@@ -94,11 +98,26 @@ public class livro {
         return observacao;
     }
 
-    private String localizacao;
-    private String observacao;
+
+    public int getEdicao() {
+        return edicao;
+    }
+
+    public int getQuantidadeDisponivel() {
+        return quantidadeDisponivel;
+    }
+
+    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
+        this.quantidadeDisponivel = quantidadeDisponivel;
+    }
+
+    private int quantidadeDisponivel;
+    public void setEdicao(int edicao) {
+        this.edicao = edicao;
+    }
 
 
-    public livro(int icbn, String titulo, String autor, String editora, int ano, String genero, String categoria, int quantidade,  String localizacao, String observacao) {
+    public Livro(int icbn, String titulo, String autor, String editora, int ano, String genero, String categoria, int quantidade, String localizacao, String observacao) {
         this.icbn = icbn;
         this.titulo = titulo;
         this.autor = autor;
@@ -112,7 +131,7 @@ public class livro {
         this.observacao = observacao;
     }
 
-    public livro() {
+    public Livro() {
 
     }
 }

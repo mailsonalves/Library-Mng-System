@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class livroDAOImpl implements livroDAO {
-    public List<livro> pesquisarLivros() {
+    public List<Livro> pesquisarLivros() {
         Conexao conexao = new Conexao();
         Connection connection = conexao.getConnection();
-        List<livro> livros = new ArrayList<livro>();
+        List<Livro> livros = new ArrayList<Livro>();
         if (connection != null) {
             String busca = "SELECT * FROM livros";
             try {
                 Statement statement = connection.createStatement();
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
-                    livro book = new livro();
+                    Livro book = new Livro();
                     book.setIcbn(queryResult.getInt("icbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
@@ -28,6 +28,8 @@ public class livroDAOImpl implements livroDAO {
                     book.setQuantidade(queryResult.getInt("quantidade"));
                     book.setLocalizacao(queryResult.getString("localizacao"));
                     book.setObservacao(queryResult.getString("observacoes"));
+                    book.setEdicao(queryResult.getInt("edicao"));
+                    book.setQuantidadeDisponivel(queryResult.getInt("quantidadeDisponivel"));
                     livros.add(book);
                 }
             } catch (SQLException e) {
@@ -49,10 +51,10 @@ public class livroDAOImpl implements livroDAO {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public List<livro> pesquisarLivrosTitulo(String text) {
+    public List<Livro> pesquisarLivrosTitulo(String text) {
         Conexao conexao = new Conexao();
         Connection connection = conexao.getConnection();
-        List<livro> livros = new ArrayList<livro>();
+        List<Livro> livros = new ArrayList<Livro>();
         if (connection != null) {
             String busca = "SELECT * FROM livros WHERE titulo LIKE '%" + text
             + "%'";
@@ -60,7 +62,7 @@ public class livroDAOImpl implements livroDAO {
                 Statement statement = connection.createStatement();
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
-                    livro book = new livro();
+                    Livro book = new Livro();
                     book.setIcbn(queryResult.getInt("icbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
@@ -80,10 +82,10 @@ public class livroDAOImpl implements livroDAO {
         return livros;
     }
 
-    public List<livro> pesquisarLivrosAutor(String text) {
+    public List<Livro> pesquisarLivrosAutor(String text) {
         Conexao conexao = new Conexao();
         Connection connection = conexao.getConnection();
-        List<livro> livros = new ArrayList<livro>();
+        List<Livro> livros = new ArrayList<Livro>();
         if (connection != null) {
             String busca = "SELECT * FROM livros WHERE autor LIKE '%" + text
                     + "%'";
@@ -91,7 +93,7 @@ public class livroDAOImpl implements livroDAO {
                 Statement statement = connection.createStatement();
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
-                    livro book = new livro();
+                    Livro book = new Livro();
                     book.setIcbn(queryResult.getInt("icbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
@@ -111,10 +113,10 @@ public class livroDAOImpl implements livroDAO {
         return livros;
     }
 
-    public List<livro> pesquisarLivrosCategoria(String text) {
+    public List<Livro> pesquisarLivrosCategoria(String text) {
         Conexao conexao = new Conexao();
         Connection connection = conexao.getConnection();
-        List<livro> livros = new ArrayList<livro>();
+        List<Livro> livros = new ArrayList<Livro>();
         if (connection != null) {
             String busca = "SELECT * FROM livros WHERE categoria LIKE '%" + text
                     + "%'";
@@ -122,7 +124,7 @@ public class livroDAOImpl implements livroDAO {
                 Statement statement = connection.createStatement();
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
-                    livro book = new livro();
+                    Livro book = new Livro();
                     book.setIcbn(queryResult.getInt("icbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
@@ -142,10 +144,10 @@ public class livroDAOImpl implements livroDAO {
         return livros;
     }
 
-    public List<livro> pesquisarLivrosIcbn(String text) {
+    public List<Livro> pesquisarLivrosIcbn(String text) {
         Conexao conexao = new Conexao();
         Connection connection = conexao.getConnection();
-        List<livro> livros = new ArrayList<livro>();
+        List<Livro> livros = new ArrayList<Livro>();
         if (connection != null) {
             String busca = "SELECT * FROM livros WHERE icbn LIKE '%" + text
                     + "%'";
@@ -153,7 +155,7 @@ public class livroDAOImpl implements livroDAO {
                 Statement statement = connection.createStatement();
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
-                    livro book = new livro();
+                    Livro book = new Livro();
                     book.setIcbn(queryResult.getInt("icbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
@@ -171,5 +173,20 @@ public class livroDAOImpl implements livroDAO {
             }
         }
         return livros;
+    }
+
+    public void cadastrarLivro(int icbn, String titulo, String autor, String editora, int edicao, int ano, String categoria, String observacoes, int quantidade, String localizacao) {
+
+        Conexao conexao = new Conexao();
+        Connection connection = conexao.getConnection();
+        if (connection != null) {
+            String insert = "INSERT INTO livros (icbn, titulo, autor, editora, edicao, ano, categoria, observacoes, quantidadeDisponivel, quantidade, localizacao) VALUES ('" + icbn + "', '"+ titulo + "', '" + autor + "', '" + editora + "', '"+ edicao + "', '" + ano + "', '"+ categoria+ "', '"+ observacoes + "', '"+ quantidade + "', '"+ quantidade + "', '"+ localizacao +"')";
+            try {
+                Statement statement = connection.createStatement();
+                statement.executeUpdate(insert);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <right>
+      <AnchorPane prefHeight="600.0" prefWidth="830.0" style="-fx-background-color: #7FFFD4;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="14.0" layoutY="24.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="798.0" style="-fx-background-color: #ffff; -fx-background-radius: 20px;">
+               <children>
+                  <Text fx:id="labelTitulo" layoutX="91.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="681.6000366210938">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="64.0" layoutY="203.0" text="Editora:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="282.0" text="Edição:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="363.0" text="Categoria:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="64.0" layoutY="120.0" text="ICBN:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="442.0" layoutY="120.0" text="Localização:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="442.0" layoutY="203.0" text="Observações:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="443.0" layoutY="282.0" text="Ano de Publicação:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="441.0" layoutY="363.0" text="Quantidade:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelAviso" layoutX="287.0" layoutY="484.0" prefHeight="19.0" prefWidth="224.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="labelAutor" layoutX="91.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="681.6000366210938">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Text>
+                  <FontAwesomeIconView glyphName="BOOK" layoutX="45.0" layoutY="60.0" size="40" />
+                  <Label fx:id="labelICBN" layoutX="61.0" layoutY="149.0" prefHeight="25.0" prefWidth="298.0" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelEditora" layoutX="61.0" layoutY="228.0" prefHeight="25.0" prefWidth="298.0" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelEdicao" layoutX="61.0" layoutY="309.0" prefHeight="25.0" prefWidth="298.0" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCategoria" layoutX="61.0" layoutY="390.0" prefHeight="25.0" prefWidth="298.0" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelLocalizacao" layoutX="439.0" layoutY="149.0" prefHeight="25.0" prefWidth="298.0" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelObservacoes" layoutX="439.0" layoutY="228.0" prefHeight="25.0" prefWidth="298.0" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelAno" layoutX="439.0" layoutY="309.0" prefHeight="25.0" prefWidth="298.0" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelQuantidade" layoutX="439.0" layoutY="390.0" prefHeight="25.0" prefWidth="133.0" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="601.0" layoutY="363.0" text="Disponível:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelQuantidadeDisponivel" layoutX="598.0" layoutY="390.0" prefHeight="25.0" prefWidth="133.0" textFill="#1eb01c">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="190.0" layoutY="469.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="154.0" style="-fx-background-color: #78F1CD;" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="246.0" layoutY="475.0" prefHeight="56.0" prefWidth="83.0" text="EDITAR LIVRO" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView glyphName="EDIT" layoutX="206.0" layoutY="517.0" size="40" />
+                  <Button fx:id="btnEditarLivro" layoutX="190.0" layoutY="469.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="155.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="451.0" layoutY="469.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="154.0" style="-fx-background-color: #78F1CD;" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="507.0" layoutY="475.0" prefHeight="56.0" prefWidth="83.0" text="EXCLUIR LIVRO" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnExcluirLivro" layoutX="449.0" layoutY="469.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="155.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <FontAwesomeIconView glyphName="TRASH" layoutX="468.0" layoutY="517.0" size="40" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="70.0" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="70.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="Entrar" fx:id="btnSair" layoutX="15.0" layoutY="558.0" mnemonicParsing="false" onAction="#btnSairOnAction" style="-fx-background-color: #0000;" stylesheets="@loginStyle.css" text="Sair">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnUsuarios" layoutX="-5.0" layoutY="278.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="68.0" style="-fx-border-radius: 20px; -fx-background-color: none;" />
+            <Button fx:id="btnVoltar" layoutX="4.0" layoutY="278.0" mnemonicParsing="false" onAction="#btnVoltarOnAction" style="-fx-background-color: none;" text="VOLTAR">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children></Pane>
+   </left>
+</BorderPane>

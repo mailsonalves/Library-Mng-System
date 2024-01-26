@@ -51,10 +51,10 @@
                         <Font name="Candara Bold" size="16.0" />
                      </font>
                   </Text>
-                  <RadioButton fx:id="tituloFilter" layoutX="195.0" layoutY="109.0" mnemonicParsing="false" text="Título" />
-                  <RadioButton fx:id="autorFilter" layoutX="289.0" layoutY="109.0" mnemonicParsing="false" text="Autor" />
-                  <RadioButton fx:id="categoriaFilter" layoutX="384.0" layoutY="109.0" mnemonicParsing="false" text="Categoria" />
-                  <RadioButton fx:id="icbnFilter" layoutX="483.0" layoutY="109.0" mnemonicParsing="false" text="ICBN" />
+                  <RadioButton fx:id="tituloFilter" layoutX="209.0" layoutY="110.0" mnemonicParsing="false" text="Título" />
+                  <RadioButton fx:id="autorFilter" layoutX="346.0" layoutY="110.0" mnemonicParsing="false" text="Autor" />
+                  <RadioButton fx:id="categoriaFilter" layoutX="471.0" layoutY="110.0" mnemonicParsing="false" text="Categoria" />
+                  <RadioButton fx:id="icbnFilter" layoutX="615.0" layoutY="110.0" mnemonicParsing="false" text="ICBN" />
                   <Label layoutX="137.0" layoutY="470.0" prefHeight="56.0" prefWidth="83.0" text="CADASTRAR LIVRO" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="14.0" />
@@ -83,17 +83,17 @@
                      </font>
                   </Label>
                   <FontAwesomeIconView glyphName="BOOK" layoutX="525.0" layoutY="512.0" size="40" />
-                  <Button layoutX="81.0" layoutY="464.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="155.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
+                  <Button fx:id="btnCadastrarLivro" layoutX="81.0" layoutY="464.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="155.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button layoutX="289.0" layoutY="464.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="165.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
+                  <Button fx:id="btnEmprestimo" layoutX="289.0" layoutY="464.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="165.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button layoutX="514.0" layoutY="464.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="158.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
+                  <Button fx:id="btnRelatorios" layoutX="514.0" layoutY="464.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="158.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

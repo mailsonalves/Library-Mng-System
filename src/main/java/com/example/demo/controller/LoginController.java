@@ -70,7 +70,7 @@ public class LoginController {
                 ResultSet queryResult = statement.executeQuery(verifyLogin);
                 while (queryResult.next()) {
                     if (queryResult.getInt(1) == 1) {
-                        HelloApplication.trocaDeTela("dashboard-view-adm-bibliotecario.fxml");
+                        HelloApplication.trocaDeTela("dashboard-view-adm-bibliotecario.fxml", null);
                     } else {
 
                         labelMsg.setText("usuário ou senha incorretos!");
@@ -90,7 +90,7 @@ public class LoginController {
     @FXML
     void btnCadastar(ActionEvent event) throws IOException {
 
-       HelloApplication.trocaDeTela("cadastro-view.fxml");
+       HelloApplication.trocaDeTela("cadastro-view.fxml", null);
     }
 
     @FXML

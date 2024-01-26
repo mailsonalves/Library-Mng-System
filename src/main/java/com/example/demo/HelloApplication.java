@@ -20,8 +20,11 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void trocaDeTela(String endereco) throws IOException {
+    public static void trocaDeTela(String endereco, Object controller) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(endereco));
+        if (controller != null) {
+            fxmlLoader.setController(controller);
+        }
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setScene(scene);
     }

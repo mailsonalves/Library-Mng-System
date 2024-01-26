@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.example.demo.HelloApplication;
-import com.example.demo.model.livro;
+import com.example.demo.model.Livro;
 import com.example.demo.model.livroDAOImpl;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
@@ -68,6 +68,9 @@ public class dashboardAdmBibliotecarioController {
     private TextField labelSearch;
 
     @FXML
+    private Button btnCadastrarLivro;
+
+    @FXML
     void initialize() {
         tituloFilter.setSelected(true);
 
@@ -116,7 +119,7 @@ public class dashboardAdmBibliotecarioController {
 
         labelSearch.setOnAction(e -> {
                     if (tituloFilter.isSelected()) {
-                        List<livro> livros = livroDAO.pesquisarLivrosTitulo(labelSearch.getText());
+                        List<Livro> livros = livroDAO.pesquisarLivrosTitulo(labelSearch.getText());
                         tela.getChildren().clear();
                         for (int i = 0; i < livros.size(); i++) {
                             AnchorPane result = new AnchorPane();
@@ -156,7 +159,7 @@ public class dashboardAdmBibliotecarioController {
                             tela.setPrefHeight(100 * i);
                         }
                     } else if (autorFilter.isSelected()) {
-                        List<livro> livros = livroDAO.pesquisarLivrosAutor(labelSearch.getText());
+                        List<Livro> livros = livroDAO.pesquisarLivrosAutor(labelSearch.getText());
                         tela.getChildren().clear();
                         for (int i = 0; i < livros.size(); i++) {
                             AnchorPane result = new AnchorPane();
@@ -168,10 +171,36 @@ public class dashboardAdmBibliotecarioController {
                             result.setOnMouseClicked(e2 -> {
                                 System.out.println("Clicou");
                             });
+                            result.setOnMouseEntered(e2 -> {
+                                result.setStyle("-fx-background-color: #78F1CD;");
+                            });
+                            result.setOnMouseExited(e2 -> {
+                                result.setStyle("-fx-background-color: #D9D9D9;");
+                            });
+                            Label label = new Label();
+                            result.getChildren().add(label);
+                            label.setLayoutX(60);
+                            label.setLayoutY(10);
+                            label.setText(livros.get(i).getTitulo());
+                            label.setFont(new javafx.scene.text.Font("Helvetica Bold", 20));
+                            label.setStyle("-fx-text-fill: #000000;");
+                            Label label2 = new Label();
+                            result.getChildren().add(label2);
+                            label2.setLayoutX(60);
+                            label2.setLayoutY(40);
+                            label2.setText(livros.get(i).getAutor());
+                            label2.setFont(new javafx.scene.text.Font("System Bold", 15));
+                            FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.BOOK, "40");
+                            result.getChildren().add(icon);
+                            icon.setLayoutX(15);
+                            icon.setLayoutY(50);
+
+                            tela.getChildren().add(result);
+                            tela.setPrefHeight(100 * i);
                         }
                     }
                     else if (categoriaFilter.isSelected()) {
-                        List<livro> livros = livroDAO.pesquisarLivrosCategoria(labelSearch.getText());
+                        List<Livro> livros = livroDAO.pesquisarLivrosCategoria(labelSearch.getText());
                         tela.getChildren().clear();
                         for (int i = 0; i < livros.size(); i++) {
                             AnchorPane result = new AnchorPane();
@@ -183,10 +212,36 @@ public class dashboardAdmBibliotecarioController {
                             result.setOnMouseClicked(e2 -> {
                                 System.out.println("Clicou");
                             });
+                            result.setOnMouseEntered(e2 -> {
+                                result.setStyle("-fx-background-color: #78F1CD;");
+                            });
+                            result.setOnMouseExited(e2 -> {
+                                result.setStyle("-fx-background-color: #D9D9D9;");
+                            });
+                            Label label = new Label();
+                            result.getChildren().add(label);
+                            label.setLayoutX(60);
+                            label.setLayoutY(10);
+                            label.setText(livros.get(i).getTitulo());
+                            label.setFont(new javafx.scene.text.Font("Helvetica Bold", 20));
+                            label.setStyle("-fx-text-fill: #000000;");
+                            Label label2 = new Label();
+                            result.getChildren().add(label2);
+                            label2.setLayoutX(60);
+                            label2.setLayoutY(40);
+                            label2.setText(livros.get(i).getAutor());
+                            label2.setFont(new javafx.scene.text.Font("System Bold", 15));
+                            FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.BOOK, "40");
+                            result.getChildren().add(icon);
+                            icon.setLayoutX(15);
+                            icon.setLayoutY(50);
+
+                            tela.getChildren().add(result);
+                            tela.setPrefHeight(100 * i);
                         }
                     }
                     else if (icbnFilter.isSelected()) {
-                        List<livro> livros = livroDAO.pesquisarLivrosIcbn(labelSearch.getText());
+                        List<Livro> livros = livroDAO.pesquisarLivrosIcbn(labelSearch.getText());
                         tela.getChildren().clear();
                         for (int i = 0; i < livros.size(); i++) {
                             AnchorPane result = new AnchorPane();
@@ -198,10 +253,36 @@ public class dashboardAdmBibliotecarioController {
                             result.setOnMouseClicked(e2 -> {
                                 System.out.println("Clicou");
                             });
+                            result.setOnMouseEntered(e2 -> {
+                                result.setStyle("-fx-background-color: #78F1CD;");
+                            });
+                            result.setOnMouseExited(e2 -> {
+                                result.setStyle("-fx-background-color: #D9D9D9;");
+                            });
+                            Label label = new Label();
+                            result.getChildren().add(label);
+                            label.setLayoutX(60);
+                            label.setLayoutY(10);
+                            label.setText(livros.get(i).getTitulo());
+                            label.setFont(new javafx.scene.text.Font("Helvetica Bold", 20));
+                            label.setStyle("-fx-text-fill: #000000;");
+                            Label label2 = new Label();
+                            result.getChildren().add(label2);
+                            label2.setLayoutX(60);
+                            label2.setLayoutY(40);
+                            label2.setText(livros.get(i).getAutor());
+                            label2.setFont(new javafx.scene.text.Font("System Bold", 15));
+                            FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.BOOK, "40");
+                            result.getChildren().add(icon);
+                            icon.setLayoutX(15);
+                            icon.setLayoutY(50);
+
+                            tela.getChildren().add(result);
+                            tela.setPrefHeight(100 * i);
                         }
                     }
                     else {
-                        List<livro> livros = livroDAO.pesquisarLivros();
+                        List<Livro> livros = livroDAO.pesquisarLivros();
                         tela.getChildren().clear();
                         for (int i = 0; i < livros.size(); i++) {
                             AnchorPane result = new AnchorPane();
@@ -213,12 +294,38 @@ public class dashboardAdmBibliotecarioController {
                             result.setOnMouseClicked(e2 -> {
                                 System.out.println("Clicou");
                             });
+                            result.setOnMouseEntered(e2 -> {
+                                result.setStyle("-fx-background-color: #78F1CD;");
+                            });
+                            result.setOnMouseExited(e2 -> {
+                                result.setStyle("-fx-background-color: #D9D9D9;");
+                            });
+                            Label label = new Label();
+                            result.getChildren().add(label);
+                            label.setLayoutX(60);
+                            label.setLayoutY(10);
+                            label.setText(livros.get(i).getTitulo());
+                            label.setFont(new javafx.scene.text.Font("Helvetica Bold", 20));
+                            label.setStyle("-fx-text-fill: #000000;");
+                            Label label2 = new Label();
+                            result.getChildren().add(label2);
+                            label2.setLayoutX(60);
+                            label2.setLayoutY(40);
+                            label2.setText(livros.get(i).getAutor());
+                            label2.setFont(new javafx.scene.text.Font("System Bold", 15));
+                            FontAwesomeIconView icon = new FontAwesomeIconView(FontAwesomeIcon.BOOK, "40");
+                            result.getChildren().add(icon);
+                            icon.setLayoutX(15);
+                            icon.setLayoutY(50);
+
+                            tela.getChildren().add(result);
+                            tela.setPrefHeight(100 * i);
                         }
                     }
                 }     );
 
 
-        List<livro> livros = livroDAO.pesquisarLivros();
+        List<Livro> livros = livroDAO.pesquisarLivros();
 
         for (int i = 0; i < livros.size(); i++) {
             AnchorPane result = new AnchorPane();
@@ -227,9 +334,11 @@ public class dashboardAdmBibliotecarioController {
             result.setLayoutY(90 * i);
             result.setLayoutX(10);
             result.setCursor(javafx.scene.Cursor.HAND);
+            int finalI = i;
             result.setOnMouseClicked(e -> {
                 try {
-                    HelloApplication.trocaDeTela("livro-view.fxml");
+                    LivroController controller = new LivroController(livros.get(finalI));
+                    HelloApplication.trocaDeTela("livro-view.fxml",controller);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -261,6 +370,13 @@ public class dashboardAdmBibliotecarioController {
             tela.getChildren().add(result);
             tela.setPrefHeight(100 * i);
         }
+        btnCadastrarLivro.setOnAction(e -> {
+            try {
+                HelloApplication.trocaDeTela("cadastrar-livro-view.fxml", null);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
         assert btnEntrar != null : "fx:id=\"btnEntrar\" was not injected: check your FXML file 'dashboard-view-adm-bibliotecario.fxml'.";
 
     }
