@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.HelloApplication;
 import com.example.demo.model.Livro;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
+
+import static com.example.demo.HelloApplication.trocaDeTela;
 
 public class LivroController {
 
@@ -83,18 +87,28 @@ public class LivroController {
     }
 
     @FXML
-    void btnVoltarOnAction(ActionEvent event) {
+    void btnExcluirLivroOnAction(ActionEvent event) throws IOException {
 
     }
+    @FXML
+    void btnVoltarOnAction(ActionEvent event) throws IOException {
 
+        HelloApplication.trocaDeTela("dashboard-view-adm-bibliotecario.fxml", null);
+    }
+    @FXML
+    void btnEditarLivroOnAction(ActionEvent event) throws IOException {
+        EditarLivroController cotroller = new EditarLivroController(livro);
+        HelloApplication.trocaDeTela("editar-livro-view.fxml", cotroller);
+    }
     @FXML
     void btnSairOnAction(ActionEvent event) {
         try {
-            HelloApplication.trocaDeTela("login-view.fxml", null);
+            trocaDeTela("login-view.fxml", null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     void initialize() {
         labelTitulo.setText(livro.getTitulo());

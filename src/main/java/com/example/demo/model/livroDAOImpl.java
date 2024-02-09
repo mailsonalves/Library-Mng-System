@@ -43,9 +43,7 @@ public class livroDAOImpl implements livroDAO {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void editarLivro() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public void editarLivro()
 
     public void excluirLivro() {
         throw new UnsupportedOperationException("Not supported yet.");
