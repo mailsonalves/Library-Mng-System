@@ -1,19 +1,27 @@
 package com.example.demo.controller;
 
+import com.example.demo.HelloApplication;
+import com.example.demo.model.Livro;
 import com.example.demo.model.livroDAOImpl;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import static java.lang.Integer.parseInt;
 
-public class cadastroLivroController {
+public class EditarLivroController {
 
+    private Livro livro;
+    public EditarLivroController(Livro livro){
+        this.livro = livro;
+    }
     @FXML
     private ResourceBundle resources;
 
@@ -66,10 +74,28 @@ public class cadastroLivroController {
     private TextField inputTitulo;
 
     @FXML
+    private Button btnVoltar;
+
+    @FXML
+    private Button btnSair;
+    @FXML
     private Label labelAviso;
 
 
+    @FXML
+    void btnVoltarOnAction(ActionEvent event) throws IOException {
+        LivroController livroController = new LivroController(livro);
+        HelloApplication.trocaDeTela("livro-view.fxml", livroController);
+    }
 
+    @FXML
+    void btnSairOnAction(ActionEvent event) {
+        try {
+            HelloApplication.trocaDeTela("login-view.fxml", null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     void btnCadastrarOnAction(ActionEvent event) {
         if(inputTitulo.getText().isEmpty() || inputAutor.getText().isEmpty() || inputEditora.getText().isEmpty() || inputCategoria.getText().isEmpty() || inputICBN.getText().isEmpty() || inputAno.getText().isEmpty() || inputQuantidade.getText().isEmpty() || inputLocalizacao.getText().isEmpty() || inputObs.getText().isEmpty() || inputEdicao.getText().isEmpty()){
@@ -77,18 +103,9 @@ public class cadastroLivroController {
         }else {
             try {
                 livroDAOImpl livroDAO = new livroDAOImpl();
-                livroDAO.cadastrarLivro(parseInt(inputICBN.getText()), inputTitulo.getText(), inputAutor.getText(), inputEditora.getText(), parseInt(inputEdicao.getText()), parseInt(inputAno.getText()), inputCategoria.getText(), inputObs.getText(), parseInt(inputQuantidade.getText()), inputLocalizacao.getText());
-                labelAviso.setText("Livro cadastrado com sucesso!");
-                inputTitulo.setText("");
-                inputAutor.setText("");
-                inputEditora.setText("");
-                inputCategoria.setText("");
-                inputICBN.setText("");
-                inputAno.setText("");
-                inputQuantidade.setText("");
-                inputLocalizacao.setText("");
-                inputObs.setText("");
-                inputEdicao.setText("");
+                livroDAO.editarLivro(parseInt(inputICBN.getText()), inputTitulo.getText(), inputAutor.getText(), inputEditora.getText(), parseInt(inputEdicao.getText()), parseInt(inputAno.getText()), inputCategoria.getText(), inputObs.getText(), parseInt(inputQuantidade.getText()), inputLocalizacao.getText());
+                labelAviso.setText("Livro editado com sucesso!");
+                HelloApplication.trocaDeTela("dashboard-view-adm-bibliotecario.fxml",null);
 
             }
             catch (Exception e){
@@ -102,6 +119,18 @@ public class cadastroLivroController {
 
     @FXML
     void initialize() {
+        inputTitulo.setText(livro.getTitulo());
+        inputAutor.setText(livro.getAutor());
+        inputEditora.setText(livro.getEditora());
+        inputCategoria.setText(livro.getCategoria());
+        inputICBN.setText(String.valueOf(livro.getIcbn()));
+        inputAno.setText(String.valueOf(livro.getAno()));
+        inputQuantidade.setText(String.valueOf(livro.getQuantidade()));
+        inputLocalizacao.setText(livro.getLocalizacao());
+        inputObs.setText(livro.getObservacao());
+        inputEdicao.setText(String.valueOf(livro.getEdicao()));
+        inputQuantidade.setDisable(true);
+        assert btnVoltar != null : "fx:id=\"btnVoltar\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert btnCadastrar != null : "fx:id=\"btnCadastrar\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert btnEntrar != null : "fx:id=\"btnEntrar\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert btnUsuarios != null : "fx:id=\"btnUsuarios\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";

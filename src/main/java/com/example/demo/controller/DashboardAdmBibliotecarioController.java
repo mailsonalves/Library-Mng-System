@@ -16,7 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 
-public class dashboardAdmBibliotecarioController {
+public class DashboardAdmBibliotecarioController {
 
     @FXML
     private ResourceBundle resources;
@@ -102,8 +102,8 @@ public class dashboardAdmBibliotecarioController {
         livroDAOImpl livroDAO = new livroDAOImpl();
 
         List list = painelPesquisa.getChildrenUnmodifiable();
-        System.out.println(list);
 
+        //Colando hover dos icones da barra lateral
         iconUsers.setOnMouseEntered(e -> {
             btnUsuarios.setStyle("-fx-background-color:#D9D9D9;");
         });
@@ -128,8 +128,14 @@ public class dashboardAdmBibliotecarioController {
                             result.setLayoutY(90 * i);
                             result.setLayoutX(10);
                             result.setCursor(javafx.scene.Cursor.HAND);
-                            result.setOnMouseClicked(e2 -> {
-                                System.out.println("Clicou");
+                            int finalI = i;
+                            result.setOnMouseClicked(e2-> {
+                                try {
+                                    LivroController controller = new LivroController(livros.get(finalI));
+                                    HelloApplication.trocaDeTela("livro-view.fxml",controller);
+                                } catch (IOException ex) {
+                                    throw new RuntimeException(ex);
+                                }
                             });
                             result.setOnMouseEntered(e2 -> {
                                 result.setStyle("-fx-background-color: #78F1CD;");
@@ -168,8 +174,14 @@ public class dashboardAdmBibliotecarioController {
                             result.setLayoutY(90 * i);
                             result.setLayoutX(10);
                             result.setCursor(javafx.scene.Cursor.HAND);
+                            int finalI = i;
                             result.setOnMouseClicked(e2 -> {
-                                System.out.println("Clicou");
+                                try {
+                                    LivroController controller = new LivroController(livros.get(finalI));
+                                    HelloApplication.trocaDeTela("livro-view.fxml",controller);
+                                } catch (IOException ex) {
+                                    throw new RuntimeException(ex);
+                                }
                             });
                             result.setOnMouseEntered(e2 -> {
                                 result.setStyle("-fx-background-color: #78F1CD;");
@@ -209,8 +221,14 @@ public class dashboardAdmBibliotecarioController {
                             result.setLayoutY(90 * i);
                             result.setLayoutX(10);
                             result.setCursor(javafx.scene.Cursor.HAND);
+                            int finalI = i;
                             result.setOnMouseClicked(e2 -> {
-                                System.out.println("Clicou");
+                                try {
+                                    LivroController controller = new LivroController(livros.get(finalI));
+                                    HelloApplication.trocaDeTela("livro-view.fxml",controller);
+                                } catch (IOException ex) {
+                                    throw new RuntimeException(ex);
+                                }
                             });
                             result.setOnMouseEntered(e2 -> {
                                 result.setStyle("-fx-background-color: #78F1CD;");
@@ -250,8 +268,14 @@ public class dashboardAdmBibliotecarioController {
                             result.setLayoutY(90 * i);
                             result.setLayoutX(10);
                             result.setCursor(javafx.scene.Cursor.HAND);
+                            int finalI = i;
                             result.setOnMouseClicked(e2 -> {
-                                System.out.println("Clicou");
+                                try {
+                                    LivroController controller = new LivroController(livros.get(finalI));
+                                    HelloApplication.trocaDeTela("livro-view.fxml",controller);
+                                } catch (IOException ex) {
+                                    throw new RuntimeException(ex);
+                                }
                             });
                             result.setOnMouseEntered(e2 -> {
                                 result.setStyle("-fx-background-color: #78F1CD;");
@@ -291,8 +315,14 @@ public class dashboardAdmBibliotecarioController {
                             result.setLayoutY(90 * i);
                             result.setLayoutX(10);
                             result.setCursor(javafx.scene.Cursor.HAND);
+                            int finalI = i;
                             result.setOnMouseClicked(e2 -> {
-                                System.out.println("Clicou");
+                                try {
+                                    LivroController controller = new LivroController(livros.get(finalI));
+                                    HelloApplication.trocaDeTela("livro-view.fxml",controller);
+                                } catch (IOException ex) {
+                                    throw new RuntimeException(ex);
+                                }
                             });
                             result.setOnMouseEntered(e2 -> {
                                 result.setStyle("-fx-background-color: #78F1CD;");
