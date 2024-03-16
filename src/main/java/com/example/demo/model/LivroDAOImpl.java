@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class livroDAOImpl implements livroDAO {
+public class LivroDAOImpl implements LivroDAO {
     public List<Livro> pesquisarLivros() {
         Conexao conexao = new Conexao();
         Connection connection = conexao.getConnection();
@@ -19,7 +19,7 @@ public class livroDAOImpl implements livroDAO {
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
                     Livro book = new Livro();
-                    book.setIcbn(queryResult.getInt("icbn"));
+                    book.setisbn(queryResult.getInt("isbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
                     book.setEditora(queryResult.getString("editora"));
@@ -43,10 +43,34 @@ public class livroDAOImpl implements livroDAO {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void editarLivro()
+    public void editarLivro(int isbn, String titulo, String autor, String editora, int edicao, int ano, String categoria, String observacoes, int quantidade, String localizacao) {
+        Conexao conexao = new Conexao();
+        Connection connection = conexao.getConnection();
+        if (connection != null) {
+            String update = "UPDATE livros SET titulo = '" + titulo + "', autor = '" + autor + "', editora = '" + editora + "', edicao = '" + edicao + "', ano = '" + ano + "', categoria = '" + categoria + "', observacoes = '" + observacoes + "', quantidade = '" + quantidade + "', localizacao = '" + localizacao + "' WHERE isbn = '" + isbn + "'";
+            try {
+                Statement statement = connection.createStatement();
+                statement.executeUpdate(update);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
-    public void excluirLivro() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void excluirLivro(int isbn) {
+
+        Conexao conexao = new Conexao();
+        Connection connection = conexao.getConnection();
+        if (connection != null) {
+            String delete = "DELETE FROM livros WHERE isbn = '" + isbn + "'";
+            try {
+                Statement statement = connection.createStatement();
+                statement.executeUpdate(delete);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 
     public List<Livro> pesquisarLivrosTitulo(String text) {
@@ -61,7 +85,7 @@ public class livroDAOImpl implements livroDAO {
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
                     Livro book = new Livro();
-                    book.setIcbn(queryResult.getInt("icbn"));
+                    book.setisbn(queryResult.getInt("isbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
                     book.setEditora(queryResult.getString("editora"));
@@ -92,7 +116,7 @@ public class livroDAOImpl implements livroDAO {
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
                     Livro book = new Livro();
-                    book.setIcbn(queryResult.getInt("icbn"));
+                    book.setisbn(queryResult.getInt("isbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
                     book.setEditora(queryResult.getString("editora"));
@@ -123,7 +147,7 @@ public class livroDAOImpl implements livroDAO {
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
                     Livro book = new Livro();
-                    book.setIcbn(queryResult.getInt("icbn"));
+                    book.setisbn(queryResult.getInt("isbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
                     book.setEditora(queryResult.getString("editora"));
@@ -142,19 +166,19 @@ public class livroDAOImpl implements livroDAO {
         return livros;
     }
 
-    public List<Livro> pesquisarLivrosIcbn(String text) {
+    public List<Livro> pesquisarLivrosisbn(String text) {
         Conexao conexao = new Conexao();
         Connection connection = conexao.getConnection();
         List<Livro> livros = new ArrayList<Livro>();
         if (connection != null) {
-            String busca = "SELECT * FROM livros WHERE icbn LIKE '%" + text
+            String busca = "SELECT * FROM livros WHERE isbn LIKE '%" + text
                     + "%'";
             try {
                 Statement statement = connection.createStatement();
                 ResultSet queryResult = statement.executeQuery(busca);
                 while (queryResult.next()) {
                     Livro book = new Livro();
-                    book.setIcbn(queryResult.getInt("icbn"));
+                    book.setisbn(queryResult.getInt("isbn"));
                     book.setTitulo(queryResult.getString("titulo"));
                     book.setAutor(queryResult.getString("autor"));
                     book.setEditora(queryResult.getString("editora"));
@@ -173,18 +197,20 @@ public class livroDAOImpl implements livroDAO {
         return livros;
     }
 
-    public void cadastrarLivro(int icbn, String titulo, String autor, String editora, int edicao, int ano, String categoria, String observacoes, int quantidade, String localizacao) {
+    public void cadastrarLivro(int isbn, String titulo, String autor, String editora, int edicao, int ano, String categoria, String observacoes, int quantidade, String localizacao) {
 
         Conexao conexao = new Conexao();
         Connection connection = conexao.getConnection();
         if (connection != null) {
-            String insert = "INSERT INTO livros (icbn, titulo, autor, editora, edicao, ano, categoria, observacoes, quantidadeDisponivel, quantidade, localizacao) VALUES ('" + icbn + "', '"+ titulo + "', '" + autor + "', '" + editora + "', '"+ edicao + "', '" + ano + "', '"+ categoria+ "', '"+ observacoes + "', '"+ quantidade + "', '"+ quantidade + "', '"+ localizacao +"')";
+            String insert = "INSERT INTO livros (isbn, titulo, autor, editora, edicao, ano, categoria, observacoes, quantidadeDisponivel, quantidade, localizacao) VALUES ('" + isbn + "', '"+ titulo + "', '" + autor + "', '" + editora + "', '"+ edicao + "', '" + ano + "', '"+ categoria+ "', '"+ observacoes + "', '"+ quantidade + "', '"+ quantidade + "', '"+ localizacao +"')";
             try {
                 Statement statement = connection.createStatement();
                 statement.executeUpdate(insert);
             } catch (SQLException e) {
+
                 throw new RuntimeException(e);
             }
         }
     }
+
 }

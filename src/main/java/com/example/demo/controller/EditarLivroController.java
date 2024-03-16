@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.HelloApplication;
 import com.example.demo.model.Livro;
-import com.example.demo.model.livroDAOImpl;
+import com.example.demo.model.LivroDAOImpl;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,7 +59,7 @@ public class EditarLivroController {
     private TextField inputEditora;
 
     @FXML
-    private TextField inputICBN;
+    private TextField inputisbn;
 
     @FXML
     private TextField inputLocalizacao;
@@ -98,14 +98,14 @@ public class EditarLivroController {
     }
     @FXML
     void btnCadastrarOnAction(ActionEvent event) {
-        if(inputTitulo.getText().isEmpty() || inputAutor.getText().isEmpty() || inputEditora.getText().isEmpty() || inputCategoria.getText().isEmpty() || inputICBN.getText().isEmpty() || inputAno.getText().isEmpty() || inputQuantidade.getText().isEmpty() || inputLocalizacao.getText().isEmpty() || inputObs.getText().isEmpty() || inputEdicao.getText().isEmpty()){
+        if(inputTitulo.getText().isEmpty() || inputAutor.getText().isEmpty() || inputEditora.getText().isEmpty() || inputCategoria.getText().isEmpty() || inputisbn.getText().isEmpty() || inputAno.getText().isEmpty() || inputQuantidade.getText().isEmpty() || inputLocalizacao.getText().isEmpty() || inputObs.getText().isEmpty() || inputEdicao.getText().isEmpty()){
             labelAviso.setText("Preencha todos os campos!");
         }else {
             try {
-                livroDAOImpl livroDAO = new livroDAOImpl();
-                livroDAO.editarLivro(parseInt(inputICBN.getText()), inputTitulo.getText(), inputAutor.getText(), inputEditora.getText(), parseInt(inputEdicao.getText()), parseInt(inputAno.getText()), inputCategoria.getText(), inputObs.getText(), parseInt(inputQuantidade.getText()), inputLocalizacao.getText());
+                LivroDAOImpl livroDAO = new LivroDAOImpl();
+                livroDAO.editarLivro(parseInt(inputisbn.getText()), inputTitulo.getText(), inputAutor.getText(), inputEditora.getText(), parseInt(inputEdicao.getText()), parseInt(inputAno.getText()), inputCategoria.getText(), inputObs.getText(), parseInt(inputQuantidade.getText()), inputLocalizacao.getText());
                 labelAviso.setText("Livro editado com sucesso!");
-                HelloApplication.trocaDeTela("dashboard-view-adm-bibliotecario.fxml",null);
+                HelloApplication.trocaDeTela("menu-livros-view-adm-bibliotecario.fxml",null);
 
             }
             catch (Exception e){
@@ -123,13 +123,41 @@ public class EditarLivroController {
         inputAutor.setText(livro.getAutor());
         inputEditora.setText(livro.getEditora());
         inputCategoria.setText(livro.getCategoria());
-        inputICBN.setText(String.valueOf(livro.getIcbn()));
+        inputisbn.setText(String.valueOf(livro.getisbn()));
         inputAno.setText(String.valueOf(livro.getAno()));
         inputQuantidade.setText(String.valueOf(livro.getQuantidade()));
         inputLocalizacao.setText(livro.getLocalizacao());
         inputObs.setText(livro.getObservacao());
         inputEdicao.setText(String.valueOf(livro.getEdicao()));
         inputQuantidade.setDisable(true);
+
+        //Colocando hover dos icones da barra lateral
+        iconUsers.setOnMouseEntered(e -> {
+            btnUsuarios.setStyle("-fx-background-color:#D9D9D9;");
+        });
+        iconUsers.setOnMouseClicked(e -> {
+            try {
+                HelloApplication.trocaDeTela("menu-usuario-view-adm-bibliotecario.fxml", null);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        iconUsers.setOnMouseExited(e -> {
+            btnUsuarios.setStyle("-fx-background-color: none;");
+        });
+        btnUsuarios.setOnMouseEntered(e -> {
+            btnUsuarios.setStyle("-fx-background-color:#D9D9D9;");
+        });
+        btnUsuarios.setOnMouseExited(e -> {
+            btnUsuarios.setStyle("-fx-background-color: none;");
+        });
+        iconbook.setOnMouseClicked(e -> {
+            try {
+                HelloApplication.trocaDeTela("menu-livros-view-adm-bibliotecario.fxml", null);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
         assert btnVoltar != null : "fx:id=\"btnVoltar\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert btnCadastrar != null : "fx:id=\"btnCadastrar\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert btnEntrar != null : "fx:id=\"btnEntrar\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
@@ -141,7 +169,7 @@ public class EditarLivroController {
         assert inputCategoria != null : "fx:id=\"inputCategoria\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert inputEdicao != null : "fx:id=\"inputEdicao\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert inputEditora != null : "fx:id=\"inputEditora\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
-        assert inputICBN != null : "fx:id=\"inputICBN\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
+        assert inputisbn != null : "fx:id=\"inputisbn\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert inputLocalizacao != null : "fx:id=\"inputLocalizacao\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert inputObs != null : "fx:id=\"inputObs\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";
         assert inputQuantidade != null : "fx:id=\"inputQuantidade\" was not injected: check your FXML file 'cadastro-livro-view.fxml'.";

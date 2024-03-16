@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.HelloApplication;
 import com.example.demo.model.Livro;
+import com.example.demo.model.LivroDAO;
+import com.example.demo.model.LivroDAOImpl;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 
 import java.io.IOException;
@@ -32,8 +34,6 @@ public class LivroController {
     @FXML
     private Button btnExcluirLivro;
 
-
-
     @FXML
     private FontAwesomeIconView iconUsers;
 
@@ -59,7 +59,7 @@ public class LivroController {
     private Label labelEditora;
 
     @FXML
-    private Label labelICBN;
+    private Label labelisbn;
 
     @FXML
     private Label labelLocalizacao;
@@ -82,18 +82,30 @@ public class LivroController {
     @FXML
     private Button btnSair;
 
+    @FXML
+    private Button btnUsuarios;
+
+    @FXML
+    private Button btnUsuarios1;
+
+
+
+
     public LivroController(Livro livro) {
         this.livro = livro;
     }
 
     @FXML
     void btnExcluirLivroOnAction(ActionEvent event) throws IOException {
+        LivroDAOImpl livroDAO = new LivroDAOImpl();
+        livroDAO.excluirLivro(livro.getisbn());
+        HelloApplication.trocaDeTela("menu-livros-view-adm-bibliotecario.fxml", null);
 
     }
     @FXML
     void btnVoltarOnAction(ActionEvent event) throws IOException {
 
-        HelloApplication.trocaDeTela("dashboard-view-adm-bibliotecario.fxml", null);
+        HelloApplication.trocaDeTela("menu-livros-view-adm-bibliotecario.fxml", null);
     }
     @FXML
     void btnEditarLivroOnAction(ActionEvent event) throws IOException {
@@ -117,12 +129,40 @@ public class LivroController {
         labelCategoria.setText(livro.getCategoria());
         labelEdicao.setText(String.valueOf(livro.getEdicao()));
         labelEditora.setText(livro.getEditora());
-        labelICBN.setText(String.valueOf(livro.getIcbn()));
+        labelisbn.setText(String.valueOf(livro.getisbn()));
         labelLocalizacao.setText(livro.getLocalizacao());
         labelObservacoes.setText(livro.getObservacao());
         labelQuantidade.setText(String.valueOf(livro.getQuantidade()));
         labelQuantidadeDisponivel.setText(String.valueOf(livro.getQuantidadeDisponivel()));
 
+
+        //Colocando hover dos icones da barra lateral
+        iconUsers.setOnMouseEntered(e -> {
+            btnUsuarios.setStyle("-fx-background-color:#D9D9D9;");
+        });
+        iconUsers.setOnMouseClicked(e -> {
+            try {
+                HelloApplication.trocaDeTela("menu-usuario-view-adm-bibliotecario.fxml", null);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        iconUsers.setOnMouseExited(e -> {
+            btnUsuarios.setStyle("-fx-background-color: none;");
+        });
+        btnUsuarios.setOnMouseEntered(e -> {
+            btnUsuarios.setStyle("-fx-background-color:#D9D9D9;");
+        });
+        btnUsuarios.setOnMouseExited(e -> {
+            btnUsuarios.setStyle("-fx-background-color: none;");
+        });
+        iconbook.setOnMouseClicked(e -> {
+            try {
+                HelloApplication.trocaDeTela("menu-livros-view-adm-bibliotecario.fxml", null);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
         assert btnEditarLivro != null : "fx:id=\"btnEditarLivro\" was not injected: check your FXML file 'livro-view.fxml'.";
         assert btnExcluirLivro != null : "fx:id=\"btnExcluirLivro\" was not injected: check your FXML file 'livro-view.fxml'.";
         assert iconUsers != null : "fx:id=\"iconUsers\" was not injected: check your FXML file 'livro-view.fxml'.";
@@ -133,7 +173,7 @@ public class LivroController {
         assert labelCategoria != null : "fx:id=\"labelCategoria\" was not injected: check your FXML file 'livro-view.fxml'.";
         assert labelEdicao != null : "fx:id=\"labelEdicao\" was not injected: check your FXML file 'livro-view.fxml'.";
         assert labelEditora != null : "fx:id=\"labelEditora\" was not injected: check your FXML file 'livro-view.fxml'.";
-        assert labelICBN != null : "fx:id=\"labelICBN\" was not injected: check your FXML file 'livro-view.fxml'.";
+        assert labelisbn != null : "fx:id=\"labelisbn\" was not injected: check your FXML file 'livro-view.fxml'.";
         assert labelLocalizacao != null : "fx:id=\"labelLocalizacao\" was not injected: check your FXML file 'livro-view.fxml'.";
         assert labelObservacoes != null : "fx:id=\"labelObservacoes\" was not injected: check your FXML file 'livro-view.fxml'.";
         assert labelQuantidade != null : "fx:id=\"labelQuantidade\" was not injected: check your FXML file 'livro-view.fxml'.";

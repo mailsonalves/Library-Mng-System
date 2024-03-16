@@ -1,7 +1,7 @@
 package com.example.demo.model;
 
 public class Livro {
-    private int icbn;
+    private int isbn;
     private String titulo;
     private String autor;
     private String editora;
@@ -15,8 +15,8 @@ public class Livro {
 
     private int edicao;
 
-    public void setIcbn(int icbn) {
-        this.icbn = icbn;
+    public void setisbn(int isbn) {
+        this.isbn = isbn;
     }
 
     public void setTitulo(String titulo) {
@@ -57,8 +57,8 @@ public class Livro {
     }
 
 
-    public int getIcbn() {
-        return icbn;
+    public int getisbn() {
+        return isbn;
     }
 
     public String getTitulo() {
@@ -117,8 +117,8 @@ public class Livro {
     }
 
 
-    public Livro(int icbn, String titulo, String autor, String editora, int ano, String genero, String categoria, int quantidade, String localizacao, String observacao) {
-        this.icbn = icbn;
+    public Livro(int isbn, String titulo, String autor, String editora, int ano, String genero, String categoria, int quantidade, String localizacao, String observacao) {
+        this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
         this.editora = editora;

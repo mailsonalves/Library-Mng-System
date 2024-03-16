@@ -17,58 +17,48 @@
          <children>
             <Pane layoutX="14.0" layoutY="24.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="798.0" style="-fx-background-color: #ffff; -fx-background-radius: 20px;">
                <children>
-                  <Text fx:id="labelTitulo" layoutX="91.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="681.6000366210938">
+                  <Text fx:id="labelNome" layoutX="91.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="681.6000366210938">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Text>
-                  <Label layoutX="64.0" layoutY="203.0" text="Editora:">
+                  <Label layoutX="442.0" layoutY="203.0" text="Bairro">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="66.0" layoutY="282.0" text="Edição:">
+                  <Label layoutX="444.0" layoutY="276.0" text="Estado">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="66.0" layoutY="363.0" text="Categoria:">
+                  <Label layoutX="64.0" layoutY="120.0" text="E-mail">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="64.0" layoutY="120.0" text="ISBN:">
+                  <Label layoutX="64.0" layoutY="201.0" text="Rua">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="442.0" layoutY="120.0" text="Localização:">
+                  <Label layoutX="64.0" layoutY="278.0" text="Cidade">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="442.0" layoutY="203.0" text="Observações:">
+                  <Label layoutX="445.0" layoutY="362.0" text="Situação">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="443.0" layoutY="282.0" text="Ano de Publicação:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="441.0" layoutY="363.0" text="Quantidade:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Text fx:id="labelAutor" layoutX="91.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="681.6000366210938">
+                  <Text fx:id="labelCargo" layoutX="91.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="681.6000366210938">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Text>
-                  <FontAwesomeIconView glyphName="BOOK" layoutX="45.0" layoutY="60.0" size="40" />
-                  <Label fx:id="labelisbn" layoutX="61.0" layoutY="149.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
+                  <FontAwesomeIconView glyphName="USER" layoutX="45.0" layoutY="60.0" size="40" />
+                  <Label fx:id="labelEmail" layoutX="61.0" layoutY="149.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -76,7 +66,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="labelEditora" layoutX="61.0" layoutY="228.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
+                  <Label fx:id="labelBairro" layoutX="439.0" layoutY="228.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -84,7 +74,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="labelEdicao" layoutX="61.0" layoutY="309.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
+                  <Label fx:id="labelEstado" layoutX="439.0" layoutY="303.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -92,7 +82,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="labelCategoria" layoutX="61.0" layoutY="390.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
+                  <Label fx:id="labelRua" layoutX="61.0" layoutY="230.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -100,7 +90,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="labelLocalizacao" layoutX="439.0" layoutY="149.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
+                  <Label fx:id="labelCidade" layoutX="61.0" layoutY="303.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -108,36 +98,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="labelObservacoes" layoutX="439.0" layoutY="228.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="labelAno" layoutX="439.0" layoutY="309.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="labelQuantidade" layoutX="439.0" layoutY="390.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
-                  <Label layoutX="601.0" layoutY="363.0" text="Disponível:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelQuantidadeDisponivel" layoutX="598.0" layoutY="390.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: #CECECE;" textFill="#1eb01c">
+                  <Label fx:id="labelSituacao" layoutX="441.0" layoutY="389.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -150,13 +111,13 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label layoutX="246.0" layoutY="475.0" prefHeight="56.0" prefWidth="83.0" text="EDITAR LIVRO" textAlignment="CENTER" wrapText="true">
+                  <Label layoutX="246.0" layoutY="475.0" prefHeight="56.0" prefWidth="83.0" text="EDITAR USUÁRIO" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <FontAwesomeIconView glyphName="EDIT" layoutX="206.0" layoutY="517.0" size="40" />
-                  <Button fx:id="btnEditarLivro" layoutX="190.0" layoutY="469.0" mnemonicParsing="false" onAction="#btnEditarLivroOnAction" prefHeight="68.0" prefWidth="155.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
+                  <Button fx:id="btnEditarUsuario" layoutX="190.0" layoutY="469.0" mnemonicParsing="false" onAction="#btnEditarUsuarioOnAction" prefHeight="68.0" prefWidth="155.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -169,12 +130,12 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label layoutX="507.0" layoutY="475.0" prefHeight="56.0" prefWidth="83.0" text="EXCLUIR LIVRO" textAlignment="CENTER" wrapText="true">
+                  <Label layoutX="507.0" layoutY="475.0" prefHeight="56.0" prefWidth="83.0" text="EXCLUIR USUÁRIO" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnExcluirLivro" layoutX="449.0" layoutY="469.0" mnemonicParsing="false" onAction="#btnExcluirLivroOnAction" prefHeight="68.0" prefWidth="155.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
+                  <Button fx:id="btnExcluirUsuario" layoutX="449.0" layoutY="469.0" mnemonicParsing="false" onAction="#btnExcluirUsuarioOnAction" prefHeight="68.0" prefWidth="155.0" style="-fx-background-color: NONE;" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -183,6 +144,32 @@
                      </cursor>
                   </Button>
                   <FontAwesomeIconView glyphName="TRASH" layoutX="468.0" layoutY="517.0" size="40" />
+                  <Label layoutX="446.0" layoutY="117.0" text="Telefone">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelTelefone" layoutX="441.0" layoutY="149.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="68.0" layoutY="361.0" text="CPF">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCPF" layoutX="64.0" layoutY="388.0" prefHeight="25.0" prefWidth="298.0" style="-fx-background-color: #CECECE;" textFill="#b11b1b">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
                </children>
             </Pane>
          </children>
@@ -200,7 +187,7 @@
                </cursor>
             </Button>
             <Button fx:id="btnUsuarios" layoutX="-5.0" layoutY="284.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="68.0" style="-fx-border-radius: 20px; -fx-background-color: none;" />
-            <Button layoutX="-5.0" layoutY="213.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="68.0" style="-fx-background-color: D9D9D9; -fx-border-radius: 20px;">
+            <Button layoutX="-5.0" layoutY="284.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="68.0" style="-fx-background-color: D9D9D9; -fx-border-radius: 20px;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
